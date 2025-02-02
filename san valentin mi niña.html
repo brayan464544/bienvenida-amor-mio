@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín? 🥺</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9e3e3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 2.5em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #si {
+            background-color: #5cb85c;
+            color: white;
+        }
+        #no {
+            background-color: #d9534f;
+            color: white;
+        }
+        .flores {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+        .flor {
+            position: absolute;
+            font-size: 2em;
+            color: #ff69b4;
+            animation: caer 5s linear infinite;
+        }
+        @keyframes caer {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+        .mensaje-final {
+            font-size: 2em;
+            color: #d9534f;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button id="si">Sí</button>
+        <button id="no">No</button>
+    </div>
+    <div class="flores" id="flores" style="display: none;">
+        <!-- Aquí se generarán las flores -->
+    </div>
+    <p class="mensaje-final" id="mensaje-final" style="display: none;">¡Sabía que dirías que sí, por eso te amo, mi preciosa, mi niña hermosa, mi cachetoncita de ojitos bonitos,
+        te amooooooo con toda el alma mi gordita! 💖</p>
+
+    <script>
+        const botonSi = document.getElementById('si');
+        const botonNo = document.getElementById('no');
+        const floresDiv = document.getElementById('flores');
+        const mensajeFinal = document.getElementById('mensaje-final');
+
+        botonNo.addEventListener('click', () => {
+            alert("por favor, di que si 🥹");
+        });
+
+        botonSi.addEventListener('click', () => {
+            // Ocultar botones
+            document.querySelector('.buttons').style.display = 'none';
+            // Mostrar flores y mensaje final
+            floresDiv.style.display = 'block';
+            mensajeFinal.style.display = 'block';
+
+            // Generar flores
+            for (let i = 0; i < 50; i++) {
+                const flor = document.createElement('div');
+                flor.classList.add('flor');
+                flor.innerHTML = '🌸';
+                flor.style.left = Math.random() * 100 + 'vw';
+                flor.style.animationDuration = Math.random() * 3 + 2 + 's';
+                floresDiv.appendChild(flor);
+            }
+        });
+    </script>
+</body>
+</html>
